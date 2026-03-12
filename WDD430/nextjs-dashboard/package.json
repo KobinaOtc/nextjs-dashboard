@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "git": "git add . && git commit -m 'update' && git push"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
