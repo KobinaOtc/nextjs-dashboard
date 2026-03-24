@@ -28,12 +28,13 @@ export function UpdateInvoice({ id }: { id: string }) {
 export function DeleteInvoice({ id }: { id: string }) {
   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
 
+  // Create a wrapper that returns void to satisfy TypeScript
   const handleAction = async (formData: FormData) => {
     await deleteInvoiceWithId();
   };
 
   return (
-    <form action={handleAction}>
+    <form action={handleAction}> {/* Use the wrapper here */}
       <button type="submit" className="rounded-md border p-2 hover:bg-gray-100">
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />
