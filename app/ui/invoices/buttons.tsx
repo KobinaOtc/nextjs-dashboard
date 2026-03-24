@@ -26,17 +26,12 @@ export function UpdateInvoice({ id }: { id: string }) {
 }
 
 export function DeleteInvoice({ id }: { id: string }) {
+  // Use .bind to create a serializable action reference
   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
 
-  // Create a wrapper that returns void to satisfy TypeScript
-  const handleAction = async (formData: FormData) => {
-    await deleteInvoiceWithId();
-  };
-
   return (
-    <form action={handleAction}> {/* Use the wrapper here */}
-      <button type="submit" className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
+    <form action={deleteInvoiceWithId}>
+      <button type="submit" className="...">
         <TrashIcon className="w-5" />
       </button>
     </form>
